@@ -7,7 +7,7 @@ import { useControls } from 'leva';
 
 export default function Game() {
   const { bgColor } = useControls({
-    bgColor: '#87CEEB'
+    bgColor: '#519ab7'
   });
 
   return (
@@ -23,7 +23,7 @@ export default function Game() {
     >
       <Canvas shadows camera={{ position: [0, 5, 30], fov: 70 }} style={{width: '100vw', height: '100vh'}}>
         <color attach="background" args={[bgColor]} />
-        <fog attach="fog" args={['#87CEEB', 30, 40]} />
+        {/* <fog attach="fog" args={['#87CEEB', 30, 40]} /> */}
         <ambientLight intensity={0.5} />
         <directionalLight 
           position={[10, 10, 5]} 
@@ -52,14 +52,14 @@ export default function Game() {
 const overlayStyle:React.CSSProperties = {
   position: 'absolute',
   bottom: '20px',
-  left: '20px',
+  // left: '20px',
   pointerEvents: 'none',
 };
 
 const instructionsStyle:React.CSSProperties = {
   background: 'rgba(0,0,0,0.5)',
   color: 'white',
-  padding: '10px 20px',
-  borderRadius: '10px',
+  padding: '10px 10px',
+  // borderRadius: '10px',
   fontFamily: 'Arial, sans-serif',
 };

@@ -28,14 +28,14 @@ export default function World() {
         <planeGeometry args={[500, 500]} />
         <meshStandardMaterial color="#4CA1AF" />
       </mesh>
-      
+
       {/* Clouds */}
       <Cloud position={[10, 5, 0]} />
       <Cloud position={[-15, 8, -10]} scale={[2, 1, 2]} />
       <Cloud position={[0, 12, -20]} scale={[3, 1.5, 3]} />
       <Cloud position={[20, 3, 10]} scale={[2.5, 1, 2.5]} />
       <Cloud position={[-5, 15, 5]} scale={[1.5, 0.8, 1.5]} />
-      
+
       {/* Floating obstacles */}
       {obstacles.map((props, index) => (
         <Obstacle key={index} {...props} />
@@ -46,9 +46,17 @@ export default function World() {
 
 function Obstacle({ position, scale, color }) {
   return (
-    <mesh position={position} scale={scale} castShadow receiveShadow>
-      <boxGeometry />
-      <meshStandardMaterial color={color} />
-    </mesh>
+    <>
+      <mesh position={[0, 10, 0]}>
+        <boxGeometry args={[40, 20, 40]} />
+        <meshBasicMaterial color="white" wireframe transparent opacity={0.2} />
+      </mesh>
+
+      <mesh position={position} scale={scale} castShadow receiveShadow>
+        <boxGeometry />
+        <meshStandardMaterial color={color} />
+      </mesh>
+    </>
+
   );
 }
